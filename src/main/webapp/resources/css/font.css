@@ -1,0 +1,89 @@
+@import url('../icons/font_icon/css/font-awesome.min.css');
+
+
+.fa { font-size: 14px;}
+.fa-star {  color: #e67e22;}
+.font-8px     { font-size: 8px  !important; }
+.font-10px    { font-size: 10px !important; }
+.font-12px    { font-size: 12px !important; }
+.font-14px    { font-size: 14px !important; }
+.font-18px    { font-size: 18px !important; }
+.font-24px    { font-size: 24px !important; }
+.font-27px    { font-size: 27px !important; }
+.font-32px    { font-size: 32px !important; }
+.font-40px    { font-size: 40px !important; }
+
+
+.font-inv {
+  -webkit-transform:rotateY(180deg);
+  -moz-transform:rotateY(180deg);
+  -o-transform:rotateY(180deg);
+  -ms-transform:rotateY(180deg);
+}
+
+
+.etxt {
+}
+
+.txt-hl {
+  color: #595959;
+  line-height: 1.3em;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Helvetica Neue', 'Helvetica', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro';
+}
+
+
+
+.tip {
+  font-size: 12px;
+  line-height: 18px;
+  padding-right: 20px;
+  word-wrap: break-word;
+  color: #797979 !important;
+}
+
+
+p.flead {
+  font-size: 1.5em;
+  line-height: 2em;
+  font-family: 'Helvetica Neue', 'Helvetica', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', arial, sans-serif;
+}
+
+
+h1.flead, h2.flead, h3.flead,
+h4.flead, h5.flead, h6.flead {  
+  line-height: 1em;
+	font-family: Georgia,Times,"Times New Roman",serif;
+}
+
+.fnor {
+	font-size: 18px;
+	line-height: 1.3em;
+	font-family: 'Helvetica Neue', 'Helvetica', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', arial, sans-serif;
+
+	
+}
+
+.fimp {
+	font-size: 16px;
+	line-height: 1.3em;
+	font-family: arial,sans-serif;
+}
+
+.ftopic {
+  font-size: 16px;
+  line-height: 1.3em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.fgog {
+  font-family: 'Roboto Slab Light',Arial,sans-serif;
+}
+
+
+.section-header {
+  font-family: Raleway, Helvetica, sans-serif;
+  font-weight: 400;
+  color: #2a2a2a;
+}
