@@ -1,5 +1,5 @@
 
-package com.web.pages.account.form;
+package com.web.pages;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class RegisterController {
 			) {
 		Account account = new Account();
 		model.addAttribute("newUser", account);
-		return "pages/account/register";
+		return "pages/register";
 	}
 	
 	
@@ -40,26 +40,21 @@ public class RegisterController {
 	
 	@RequestMapping(value="/register"
 											, method=RequestMethod.POST)
-	@ResponseBody
-	public JsonResponse processRegisterForm(Model model
+	public String processRegisterForm(Model model
 																, @ModelAttribute("newUser") Account account
 																, @RequestParam("password") String password
 			) {
-
 		synchronized (this) {
-			JsonResponse jsonResponse = new JsonResponse();
 			try {
 				Account entity = authenService.register(account, password);
 				Assert.notNull(entity, "Unable to create new a new account entity");
-			
-				jsonResponse.setState(true);
+				return "redirect:/user/contacts";
 			} catch(DataIntegrityViolationException e) {
-				jsonResponse.setState(false);
+				e.printStackTrace();
 			} catch(Exception e) {
-				jsonResponse.setState(false);
 				e.printStackTrace();
 			}
-			return jsonResponse;
+			return "pages/register";
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package com.web.pages.account.form;
+package com.web.pages;
 
 
 import org.springframework.stereotype.Controller;
@@ -18,6 +18,6 @@ public class LoginController {
 	public String showLoginPage(Model model)
 	{
 		model.addAttribute("newUser", new Account());
-		return "pages/account/login";
+		return "pages/login";
 	}
 }

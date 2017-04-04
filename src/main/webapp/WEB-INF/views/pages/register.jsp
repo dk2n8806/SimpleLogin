@@ -16,8 +16,8 @@
 </head>
 <body>
 
-<jsp:include page="../../navigation/header_navigation.jsp"></jsp:include>
-<jsp:include page="../../form/account/registerform.jsp"></jsp:include>
+<jsp:include page="../navigation/header_navigation.jsp"></jsp:include>
+<jsp:include page="../form/account/registerform.jsp"></jsp:include>
 <script type="text/javascript">
 $(document).ready(function() {
 	/* Cache btn */

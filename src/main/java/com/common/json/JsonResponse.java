@@ -13,6 +13,14 @@ public class JsonResponse implements Serializable {
 	private Object result = null;
 	private String retUrl = null;
 	
+
+	public JsonResponse() {}
+	public JsonResponse(boolean state, Object result) {
+		this.state = state;
+		this.result = result;
+	}
+	
+	
 	public String getRetUrl() {		return retUrl;	}
 	public void setRetUrl(String retUrl) {		this.retUrl = retUrl;	}
 	

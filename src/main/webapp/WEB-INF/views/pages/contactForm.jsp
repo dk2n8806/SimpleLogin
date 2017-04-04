@@ -9,55 +9,39 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title></title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
-
 <body>
 <jsp:include page="../navigation/header_navigation.jsp"></jsp:include>
-<jsp:include page="../form/account/loginform.jsp"></jsp:include>
+<div style="width: 1000px; margin: auto;">
+	<div>
+		<c:if test="${not empty jsonMessage}">
+			<h2>${jsonMessage.result }</h2>
+		</c:if>
+	</div>
+	<div style="text-align: center">
+		<jsp:include page="components/contactForm.jsp"></jsp:include>
+	</div>
+		
+</div>
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	/* Cache btn */
-	//var $btn = $("form input[type='submit']");
-	var $form = $("#loginForm");
-	$form.on("submit", function(event) {
-		var $this = $(this);
-		var $email 		= $($this.find("input[name=email]"));
-		var $password 	= $($this.find("input[name=password]"));
+	$("#contactForm").on("submit", function(event) {
+	 	var $this = $(this);
+		var $name = $this.find("input[name=name]");
+		var $email = $this.find("input[name=email]");
+		var $msg = $this.find("textarea[name=message]");
+
+		var flag1 = setFlag($name, $name.val().length > 0);
+		var flag2 = setFlag($email, isEmail($email.val()));
+		var flag3 = setFlag($msg, $msg.val().length > 0);
 		
-		if(($form.length == 1)  
-				||($email.length == 1) ||($password.length == 1)) {
-			
-			var email = $email.val();
-			var password = $password.val();
-			
-			var isE = setFlag($email, isEmail(email));
-			var isP = setFlag($password, isStr(password, 8, 32));
-			
-			//alert(isE + " " + isU + " " + isP);
-			if(isE && isP) {
-				$this.submit();
-			}
-		} 
-		event.preventDefault();
-	}); 
-	function setFlag($c, t) {
-		var e = "#" + $c.attr("id");
-		var $e = $(e + "-err");
-		if(t===true) {
-			$c.removeClass("error");
-			$e.hide();
-			return true;
-		} else {
-			$c.addClass("error");
-			$e.show();	
-			return false;
+		if(flag1 && flag2 && flag3) {
+			$this.submit();
 		}
-	};
-	
+	});
+
 	function isEmail(v) {
 		var flag = false;
 		var len = v.length;
@@ -71,19 +55,17 @@ $(document).ready(function() {
 		}
 		return flag;
 	};
-	function isStr(v, min, max) {
-		var flag = false;
-		var len = v.length;
-		if((typeof v === "string") && (len >= min) && (len <= max))  {
-			flag = true;
+
+	function setFlag($c, t) {
+		if(t===true) {
+			$c.removeClass("error");
+			return true;
 		} else {
-			flag = false;
+			$c.addClass("error");
+			return false;
 		}
-		 return flag;
-	}
+	};
 });
-
-
 </script>
 </body>
 </html>

@@ -13,22 +13,6 @@
 			</c:choose>
 		</div>
 		<spring:url value="/" var="browseLink" htmlEscape="true" />
-		<h1 class="toLeft" id="logo"><a href="${browseLink }">Mingo</a></h1>
-		<div class="header-nav">
-			<ul>
-				<li class="menu-wrapper"><a href="#">Browse&nbsp;&nbsp;<i class="fa fa-sort-desc"></i></a>
-					<!-- <div class="menu mn200">
-						<div class="menu-content">
-							<ul>
-								<li><a href="#">Account Setting</a></li>
-								<li><a href="#">Billing &#38; Payment</a></li>
-								<li><a href="#">Account Setting</a></li>
-								<li><a href="#">Logout</a></li>
-							</ul>
-						</div>
-					</div> -->
-				</li>
-			</ul>
-		</div>
+		<h1 class="toLeft" id="logo"><a href="${browseLink }">SimpleLogin</a></h1>
 	</div>
 </div>

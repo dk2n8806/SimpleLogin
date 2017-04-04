@@ -12,11 +12,25 @@
 </head>
 <body>
 <jsp:include page="../navigation/header_navigation.jsp"></jsp:include>
-<br/><br/>
-<div class="toCenter">
-	<spring:url value="/login" var="loginLink" htmlEscape="true"></spring:url>
-	<a class="btn primary-btn" href="${loginLink}">Please login</a>
+
+<div style="width: 1000px; margin: auto;">
+	
+	
+	<div>
+		<c:if test="${not empty jsonMessage}">
+			<h2>${jsonMessage.result }</h2>
+		</c:if>
+	</div>
+	
+	<jsp:include page="components/contactMessageList.jsp"></jsp:include>
+	
+	<br/>
+	<div class="toCenter">
+		<spring:url value="/user/contact-form" var="contacformlink" htmlEscape="true"></spring:url>
+		<a class="primary-btn btn" href="${contacformlink }">New message</a>
+	</div>
 </div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">

@@ -39,6 +39,12 @@
   	<!-- ****************************************************************** -->
   	<dependencies>
   	
+	  	<dependency>
+		    <groupId>com.sendgrid</groupId>
+		    <artifactId>sendgrid-java</artifactId>
+		    <version>3.2.0</version>
+		</dependency>
+  	
    		<dependency>
     		<groupId>javax.el</groupId>
     		<artifactId>javax.el-api</artifactId>

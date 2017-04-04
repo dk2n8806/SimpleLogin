@@ -24,14 +24,12 @@ import com.common.util.AccountUtil;
 
 @Entity
 @Table(name="ACCOUNT")
-public class Account 
-	extends AbstractPersistenceObject
-implements UserDetails, CredentialsContainer, Cloneable {
+public class Account extends AbstractPersistenceObject
+	implements UserDetails, CredentialsContainer, Cloneable 
+{
 
 	private static final long serialVersionUID = 5055780751875589105L;
 
-	
-	
 	private String username;
 	private String email;
 	private byte[] hashedPassword;

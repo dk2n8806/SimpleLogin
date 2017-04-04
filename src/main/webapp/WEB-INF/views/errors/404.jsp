@@ -15,6 +15,6 @@
 </head>
 <body class="green">
 
-<h1>404aaaaaaaaaaaaaaaa</h1>
+<h1>404</h1>
 </body>
 </html>
