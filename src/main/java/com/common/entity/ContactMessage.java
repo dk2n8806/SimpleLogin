@@ -30,7 +30,7 @@ public class ContactMessage extends AbstractPersistenceObject{
 			throw new IllegalArgumentException("account is invalid");
 		if(name == null || name.length() == 0)
 			throw new IllegalArgumentException("name is invalid");
-		if(email == null || email.length() == 0 || EmailValidator.getInstance().isValid(email))
+		if(email == null || email.length() == 0 || !EmailValidator.getInstance().isValid(email))
 			throw new IllegalArgumentException("email is invalid");
 		if(message == null || message.length() == 0) 
 			throw new IllegalArgumentException("contact message is invalid");
@@ -38,6 +38,7 @@ public class ContactMessage extends AbstractPersistenceObject{
 		this.email = email;
 		this.message = message;
 		this.status = MessageStatus.NEW;
+		this.account = account;
 	}
 	
 	

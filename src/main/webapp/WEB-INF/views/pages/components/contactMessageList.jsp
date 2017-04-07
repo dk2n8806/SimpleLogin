@@ -3,8 +3,7 @@
 		<div class="blk-content modal-content">
 			<table class="style">
 				<tr>
-					<th class="c-10"><strong>Name</strong></th>
-					<th class="c-10"><strong>Email</strong></th>
+					<th class="c-20"><strong>Email</strong></th>
 					<th class="c-50"><strong>Message</strong></th>
 					<th class="c-10"><strong>Status</strong></th>
 					<th class="c-20"><strong>Created On</strong></th>
@@ -18,9 +17,11 @@
 					<c:set var="status" value="${m.status}"/>
 					
 				<tr>
-					<td>${name }</td>
 					<td>${email }</td>
-					<td>${message }</td>
+					<td>
+						<p><strong>${name}</strong></p>
+						<div>${message }</div>
+					</td>
 					<td>${status }</td>
 					<td>${createdOn }</td>
 				</tr>

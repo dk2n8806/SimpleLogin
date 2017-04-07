@@ -7,10 +7,13 @@ import javax.persistence.ValidationMode;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.Ordered;
+import org.springframework.core.env.Environment;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -22,22 +25,29 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 		mode=AdviceMode.PROXY, proxyTargetClass=false
 		, order=Ordered.LOWEST_PRECEDENCE
 		)
+@PropertySource("classpath:/persistence.properties")
 public class PersistenceConfig {
 	
+	@Autowired private Environment env;
 	
 
     @Bean(name="dataSource")
     public DataSource dataSource() {
-		String KEY_DRIVER_CLASS = "org.postgresql.Driver";
-		String KEY_DB_URL = "jdbc:postgresql://localhost:5432/SimpleLogin";
-		String KEY_DB_USERNAME = "username";
-		String KEY_DB_PASSWORD = "password";
+//		String KEY_DRIVER_CLASS = "org.postgresql.Driver";
+//		String KEY_DB_URL = "jdbc:postgresql://localhost:5432/SimpleLogin";
+//		String KEY_DB_USERNAME = "dk2n_";
+//		String KEY_DB_PASSWORD = "D3r3kNguy3n";
 		
 		BasicDataSource basic = new BasicDataSource();
-		basic.setDriverClassName(KEY_DRIVER_CLASS);
-		basic.setUrl(KEY_DB_URL);
-		basic.setUsername(KEY_DB_USERNAME);
-		basic.setPassword(KEY_DB_PASSWORD);
+//		basic.setDriverClassName(KEY_DRIVER_CLASS);
+//		basic.setUrl(KEY_DB_URL);
+//		basic.setUsername(KEY_DB_USERNAME);
+//		basic.setPassword(KEY_DB_PASSWORD);
+		
+		basic.setDriverClassName(env.getProperty("KEY_DRIVER_CLASS"));
+		basic.setUrl(env.getProperty("KEY_DB_URL"));
+		basic.setUsername(env.getProperty("KEY_DB_USERNAME"));
+		basic.setPassword(env.getProperty("KEY_DB_PASSWORD"));
 		
 		return basic;
     }

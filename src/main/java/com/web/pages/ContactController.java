@@ -18,8 +18,8 @@ import com.common.entity.Account;
 import com.common.entity.ContactMessage;
 import com.common.entity.MessageStatus;
 import com.common.json.JsonResponse;
+import com.core.email.SendGridEmailService;
 import com.core.service.ContactMessageService;
-import com.core.service.EmailService;
 
 
 @Controller
@@ -29,7 +29,7 @@ public class ContactController implements IContactConroller {
 	private final String FORM_SUCCESS =  "redirect:/user/contacts";
 	private final String FORM_FAIL = "redirect:/user/contact-form";
 	@Autowired private ContactMessageService messageService;
-	@Autowired private EmailService emailService;
+	@Autowired private SendGridEmailService emailService;
 	
 
 	@RequestMapping(value="/user/contacts", method=RequestMethod.GET)
@@ -82,6 +82,7 @@ public class ContactController implements IContactConroller {
 			contactMsg = messageService.save(new ContactMessage(account, name, email, message));
 			if(contactMsg != null) { 
 				jsonResponse = new JsonResponse(true, "Successfuly sent your message");
+				emailService.sendGrid(account, contactMsg);
 				return FORM_SUCCESS;
 			}
 			else {

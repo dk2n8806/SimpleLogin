@@ -31,8 +31,7 @@ public class TestAccount extends BaseTest{
 	@Test
 	public void testInvalidEmail() {
 		Account account = accountService.getByEmail("derek112@gmail.com");
-		assertNull(account);
-		
+		assertNull(account);	
 	}
 	
 }

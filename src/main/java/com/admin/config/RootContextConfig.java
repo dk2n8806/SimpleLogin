@@ -1,6 +1,7 @@
 package com.admin.config;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Properties;
 import java.util.concurrent.Executor;
 
 import org.apache.log4j.LogManager;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.Ordered;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
@@ -26,6 +28,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
+import com.admin.config.secure.MailConfig;
 import com.admin.config.secure.SpringSecurityConfig;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,12 +44,36 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 			basePackages={"com.core", "com.common"},
 			excludeFilters=@ComponentScan.Filter({Controller.class, ControllerAdvice.class})
 		)
-@Import({PersistenceConfig.class, SpringSecurityConfig.class})
+@Import({PersistenceConfig.class, SpringSecurityConfig.class, MailConfig.class})
 public class RootContextConfig 
 		implements AsyncConfigurer, SchedulingConfigurer {
 
 	private static final Logger LOG = LogManager.getLogger(RootContextConfig.class);
 
+	
+
+//	@Bean
+//	public JavaMailSenderImpl javaMailService() {	
+//		String username = "dk2n1194";
+//		String password = "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";
+//		int port = 587;
+//		
+//		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+//		mailSender.setHost("smtp.sendgrid.net");
+//		mailSender.setPort(port);
+//		mailSender.setUsername(username);
+//		mailSender.setPassword(password);
+//		Properties prop = mailSender.getJavaMailProperties();
+//		prop.put("mail.transport.protocol", "smtp");
+//		prop.put("mail.smtp.auth", "true");
+//		prop.put("mail.smtp.starttls.enable", "true");
+//		prop.put("mail.debug", "true");
+//		mailSender.setJavaMailProperties(prop);
+//		return mailSender;
+//	}
+	
+	
+	
 	
 	@Bean
 	public MessageSource messageSource() 
