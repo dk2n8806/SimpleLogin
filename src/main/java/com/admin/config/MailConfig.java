@@ -1,4 +1,4 @@
-package com.admin.config.secure;
+package com.admin.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

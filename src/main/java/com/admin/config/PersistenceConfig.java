@@ -33,22 +33,11 @@ public class PersistenceConfig {
 
     @Bean(name="dataSource")
     public DataSource dataSource() {
-//		String KEY_DRIVER_CLASS = "org.postgresql.Driver";
-//		String KEY_DB_URL = "jdbc:postgresql://localhost:5432/SimpleLogin";
-//		String KEY_DB_USERNAME = "dk2n_";
-//		String KEY_DB_PASSWORD = "D3r3kNguy3n";
-		
 		BasicDataSource basic = new BasicDataSource();
-//		basic.setDriverClassName(KEY_DRIVER_CLASS);
-//		basic.setUrl(KEY_DB_URL);
-//		basic.setUsername(KEY_DB_USERNAME);
-//		basic.setPassword(KEY_DB_PASSWORD);
-		
 		basic.setDriverClassName(env.getProperty("KEY_DRIVER_CLASS"));
 		basic.setUrl(env.getProperty("KEY_DB_URL"));
 		basic.setUsername(env.getProperty("KEY_DB_USERNAME"));
 		basic.setPassword(env.getProperty("KEY_DB_PASSWORD"));
-		
 		return basic;
     }
 
